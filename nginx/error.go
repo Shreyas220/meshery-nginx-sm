@@ -26,6 +26,30 @@ var (
 	// during the process of applying helm chart
 	ErrApplyHelmChartCode = "1013"
 
+	// ErrAppMeshCoreComponentFailCode represents error code when
+	// there is an error parsing components
+	ErrAppMeshCoreComponentFailCode = "replace"
+
+	// ErrInvalidOAMComponentTypeCode represents error code when
+	// invalid OAM components are registerd
+	ErrInvalidOAMComponentTypeCode = "replace"
+
+	// ErrProcessOAMCode represents error code while parsing OAM
+	// components
+	ErrProcessOAMCode = "replace"
+
+	// ErrAddonFromTemplateCode represents the errors which are generated
+	// during addon deployment process
+	ErrAddonFromTemplateCode = "replace"
+
+	// ErrParseAppMeshCoreComponentCode represents the error code
+	// when app-mesh core components can't be parsed
+	ErrParseAppMeshCoreComponentCode = "replace"
+
+	// ErrLoadNamespaceToMeshCode represents the error
+	// which is generated when the namespace could not be labelled and updated
+	ErrLoadNamespaceToMeshCode = "appmesh_test_code"
+
 	// ErrOpInvalid is an error when an invalid operation is requested
 	ErrOpInvalid = errors.New(ErrOpInvalidCode, errors.Alert, []string{"Invalid operation"}, []string{}, []string{}, []string{})
 
@@ -67,4 +91,29 @@ func ErrCustomOperation(err error) error {
 // ErrApplyHelmChart is the occurend while applying helm chart
 func ErrApplyHelmChart(err error) error {
 	return errors.New(ErrApplyHelmChartCode, errors.Alert, []string{"Error occured while applying Helm Chart"}, []string{err.Error()}, []string{}, []string{})
+}
+
+// ErrAppMeshCoreComponentFail is the error when core appmesh component processing fails
+func ErrAppMeshCoreComponentFail(err error) error {
+	return errors.New(ErrAppMeshCoreComponentFailCode, errors.Alert, []string{"error in app-mesh core component"}, []string{err.Error()}, []string{}, []string{})
+}
+
+// ErrProcessOAM is a generic error which is thrown when an OAM operations fails
+func ErrProcessOAM(err error) error {
+	return errors.New(ErrProcessOAMCode, errors.Alert, []string{"error performing OAM operations"}, []string{err.Error()}, []string{}, []string{})
+}
+
+// ErrLoadNamespaceToMesh identifies the inability to label the appropropriate namespace
+func ErrLoadNamespaceToMesh(err error) error {
+	return errors.New(ErrLoadNamespaceToMeshCode, errors.Alert, []string{"Could not label the appropriate namespace"}, []string{err.Error()}, []string{}, []string{})
+}
+
+// ErrAddonFromTemplate is the error for streaming event
+func ErrAddonFromTemplate(err error) error {
+	return errors.New(ErrAddonFromTemplateCode, errors.Alert, []string{"Error with addon install operation"}, []string{err.Error()}, []string{}, []string{})
+}
+
+// ErrParseAppMeshCoreComponent is the error when app-mesh core component manifest parsing fails
+func ErrParseAppMeshCoreComponent(err error) error {
+	return errors.New(ErrParseAppMeshCoreComponentCode, errors.Alert, []string{"app-mesh core component manifest parsing failing"}, []string{err.Error()}, []string{}, []string{})
 }

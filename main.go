@@ -155,7 +155,9 @@ const (
 	repo = "https://helm.nginx.com/stable"
 	chart = "nginx-service-mesh"
 )
+
 func registerWorkloads(port string, log logger.Handler) {
+	
 	release, err := config.GetLatestReleases(1)
 	if err != nil {
 		log.Info("Could not get latest version")
