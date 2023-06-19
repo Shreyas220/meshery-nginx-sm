@@ -8,9 +8,9 @@ replace (
 )
 
 require (
-	github.com/layer5io/meshery-adapter-library v0.1.24
-	github.com/layer5io/meshkit v0.2.33
-	github.com/layer5io/service-mesh-performance v0.3.3
+	github.com/layer5io/meshery-adapter-library v0.6.8
+	github.com/layer5io/meshkit v0.6.45
+	github.com/layer5io/service-mesh-performance v0.3.4
 	gopkg.in/yaml.v2 v2.4.0
-	k8s.io/apimachinery v0.21.0
+	k8s.io/apimachinery v0.26.1
 )
